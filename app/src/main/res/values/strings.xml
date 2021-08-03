@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Andersen Simple Contact List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Contacts List</string>
+    <string name="surname">Surname:</string>
+    <string name="name">Name:</string>
+    <string name="patronymic">Patronymic:</string>
+    <string name="phone">Phone:</string>
+    <string name="company">Company:</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="choose_item">Choose item</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/contactsListFragment">
+
+    <fragment
+        android:id="@+id/contactsListFragment"
+        android:name="com.example.android.andersensimplecontactlist.screens.list.ContactsListFragment"
+        android:label="fragment_contacts_list"
+        tools:layout="@layout/fragment_contacts_list">
+        <action
+            android:id="@+id/action_contactsListFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactInfoFragment"
+        android:name="com.example.android.andersensimplecontactlist.screens.info.ContactInfoFragment"
+        android:label="fragment_contact_info"
+        tools:layout="@layout/fragment_contact_info">
+        <action
+            android:id="@+id/action_contactInfoFragment_to_contactsListFragment"
+            app:destination="@id/contactsListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation" />
+    </fragment>
+
+</navigation>

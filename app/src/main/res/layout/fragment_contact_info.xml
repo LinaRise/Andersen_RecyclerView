@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".screens.info.ContactInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/surname_tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            android:text="@string/surname"
+            android:textStyle="bold"
+            tools:text="Surname" />
+
+        <EditText
+            android:id="@+id/surname_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            android:focusable="false"
+            tools:text="Surname" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name_tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            android:text="@string/name"
+            android:textStyle="bold"
+            tools:text="Name" />
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            tools:text="Name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/patronymic_tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            android:text="@string/patronymic"
+            android:textStyle="bold"
+            tools:text="Patronymic" />
+
+        <EditText
+            android:id="@+id/patronymic_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            tools:text="Patronymic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/phone_tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            android:text="@string/phone"
+            android:textStyle="bold"
+            tools:text="Phone" />
+
+        <EditText
+            android:id="@+id/phone_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            tools:text="Phone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/company_tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            android:text="@string/company"
+            android:textStyle="bold"
+            tools:text="company" />
+
+        <EditText
+            android:id="@+id/company_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:layout_weight="1"
+            tools:text="company" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/edit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:text="@string/edit" />
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_margin"
+            android:enabled="false"
+            android:text="@string/save" />
+    </LinearLayout>
+</LinearLayout>
