@@ -3,17 +3,24 @@ package com.example.android.andersensimplecontactlist.screens.info
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.android.andersensimplecontactlist.R
 import com.example.android.andersensimplecontactlist.model.Contact
 import com.example.android.andersensimplecontactlist.screens.list.ContactsListFragment
+
 
 class ContactInfoFragment : Fragment() {
 
@@ -23,6 +30,7 @@ class ContactInfoFragment : Fragment() {
     private lateinit var patronymicEt: EditText
     private lateinit var phoneEt: EditText
     private lateinit var companyEt: EditText
+    private lateinit var photo: ImageView
     private lateinit var editBtn: Button
     private lateinit var saveBtn: Button
 
@@ -34,7 +42,6 @@ class ContactInfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_contact_info, container, false)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +58,7 @@ class ContactInfoFragment : Fragment() {
         patronymicEt = view.findViewById(R.id.patronymic_et)
         phoneEt = view.findViewById(R.id.phone_et)
         companyEt = view.findViewById(R.id.company_et)
+        photo = view.findViewById(R.id.im_photo)
         editBtn = view.findViewById(R.id.edit_btn)
         saveBtn = view.findViewById(R.id.save_btn)
 
@@ -59,6 +67,22 @@ class ContactInfoFragment : Fragment() {
         patronymicEt.setText(selectedContact.patronymic)
         phoneEt.setText(selectedContact.phone)
         companyEt.setText(selectedContact.company)
+        if (selectedContact.url.isNotEmpty()
+        ) {
+            if (Patterns.WEB_URL.matcher(selectedContact.url).matches()) {
+                Glide
+                    .with(requireContext())
+                    .load(selectedContact.url)
+                    .apply(
+                        RequestOptions()
+                            .error(R.drawable.ic_error)
+                            .centerCrop()
+                            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                            .placeholder(R.drawable.ic_default_image_24)
+                    )
+                    .into(photo)
+            }
+        }
 
         disableEditText(surnameEt)
         disableEditText(nameEt)
@@ -92,9 +116,11 @@ class ContactInfoFragment : Fragment() {
             bundle.putParcelable(EDITED_CONTACT, selectedContact)
 
             if (isTablet) {
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(R.id.contactsListFragment, true)
+                    .build()
                 activity?.findNavController(R.id.nav_host_fragment_main)
-                    ?.navigate(R.id.contactsListFragment, bundle)
-
+                    ?.navigate(R.id.contactsListFragment, bundle, navOptions)
             } else {
                 findNavController().navigate(
                     R.id.action_contactInfoFragment_to_contactsListFragment,

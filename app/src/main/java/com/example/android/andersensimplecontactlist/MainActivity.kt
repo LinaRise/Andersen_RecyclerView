@@ -1,22 +1,33 @@
 package com.example.android.andersensimplecontactlist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.android.andersensimplecontactlist.model.Contact
 
 class MainActivity : AppCompatActivity() {
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
 
     companion object {
 
-        var listContact = mutableListOf(
-            Contact(1, "Mihalkov", "Ivan", "Ivanovich", "+79234123896", "Gazprom"),
-            Contact(2, "Kolyada", "Michail", "Ivanovich", "+7123123123", "Andersen"),
-            Contact(3, "Berestovskaya", "Liza", "Michailovna", "+345645645666", "Sber"),
-            Contact(4, "Kolyada", "Michail", "Abramovich", "+79234567226", "Nikel")
-        )
+        var listContact = arrayListOf<Contact>().apply {
+            var i = 0
+            repeat(100) {
+                add(
+                    Contact(
+                        i,
+                        "Surname $i",
+                        "Name $i",
+                        "Patronymic $i",
+                        "Phone $i",
+                        "Company $i",
+                        "https://picsum.photos/id/${i}/100"
+                    )
+                )
+                i++
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,5 +36,4 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_main)
         title = getString(R.string.title)
     }
-
 }
