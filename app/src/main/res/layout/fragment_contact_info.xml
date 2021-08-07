@@ -149,4 +149,12 @@
             android:enabled="false"
             android:text="@string/save" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/im_photo"
+        android:layout_margin="@dimen/image_margin"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/image_large"
+        android:layout_height="@dimen/image_large" />
 </LinearLayout>

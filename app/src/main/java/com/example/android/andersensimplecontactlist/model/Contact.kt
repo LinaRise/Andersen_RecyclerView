@@ -9,10 +9,12 @@ data class Contact(
     var name: String = "",
     var patronymic: String = "",
     var phone: String = "",
-    var company: String = ""
+    var company: String = "",
+    var url: String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
@@ -27,6 +29,7 @@ data class Contact(
         parcel.writeString(patronymic)
         parcel.writeString(phone)
         parcel.writeString(company)
+        parcel.writeString(url)
     }
 
     override fun describeContents(): Int {
